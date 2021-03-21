@@ -1,0 +1,119 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style" :{}
+		}
+        ,{
+			"path": "pages/index/home",
+			"style" :{}
+		}
+	    ,{
+            "path" : "pages/component/custom",
+            "style" :{}
+        }
+        ,{
+            "path" : "pages/component/loading",
+            "style" :{}
+        }
+        ,{
+            "path" : "pages/component/toast",
+            "style" :{ }
+        }
+        ,{
+            "path" : "pages/test/layer",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/test/iframe",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/resources/iframe",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/resources/sniffing",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/play/playlist",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/chat/index",
+            "style" :                                                                                    
+            {}
+            
+        }
+        ,{
+            "path" : "pages/menu/collect",
+            "style" :                                                                                    
+            {}
+            
+        }
+        ,{
+            "path" : "pages/resources/menu",
+            "style" :                                                                                    
+            {}
+            
+        }
+        ,{
+            "path" : "pages/play/upload",
+            "style" :                                                                                    
+            {}
+            
+        }
+        ,{
+            "path" : "pages/play/record",
+            "style" :                                                                                    
+            {}
+            
+        }
+        ,{
+            "path" : "pages/play/single",
+            "style" :                                                                                    
+            {}
+            
+        }
+        ,{
+            "path" : "pages/play/online",
+            "style" :                                                                                    
+            {}
+            
+        }
+        ,{
+            "path" : "pages/user/login",
+            "style" :  
+            {
+                "navigationBarTextStyle": "black"
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/register",
+            "style" :
+            {
+                "navigationBarTextStyle": "black"
+            }
+        }
+        ,{
+            "path" : "pages/user/index",
+            "style" :  
+            {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "爱上我网",
+		"navigationBarBackgroundColor": "#F8F8F8",
+        "navigationStyle": "custom",
+		"backgroundColor": "#F8F8F8",
+        "rpxCalcMaxDeviceWidth":800
+	}
+}
