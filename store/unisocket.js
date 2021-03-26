@@ -1,6 +1,6 @@
 var wsConnectionOrder = {
     socketTask:null,
-    host: 'ws://192.168.1.12:8282', //websocket地址
+    host: 'ws://192.168.1.59:8282', //websocket地址
     timeoutObj: null, //心跳实例
     pingInterval: 10, //心跳间隔
     pingWait: 0, //心跳已等待时间

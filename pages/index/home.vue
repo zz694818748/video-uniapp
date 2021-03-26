@@ -74,7 +74,7 @@
                 ColorList: this.ColorList,
                 iframeurl: '',
                 // value: 'https://www.69wanwan.com/',
-                value: 'https://m.bilibili.com/video/BV1zg4y1i7s4',
+                value: 'http://movie.pandaye.top:90/play/num/0/id/1-104503.html',
                 isshow: true,
                 CustomBar: this.CustomBar,
                 menu: [{

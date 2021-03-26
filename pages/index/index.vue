@@ -19,6 +19,7 @@
         onLoad() {
             that = this
             var token = uni.getStorageSync('Token')
+            that.$store.state.userinfo = uni.getStorageSync('User')
             this.waitfor()
             if(token){
                 this.islogin = true

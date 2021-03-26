@@ -11,7 +11,12 @@ export default new Vuex.Store({
         socket: null,
         orderWebSocketMsg: '', //存放的键值对就是所要管理的状态(全局可以访问的state对象)
         userlist: null,
+        noRedisMsg:{
+            user:{},
+            group:{}
+        },
         roominfo: null,
+        userinfo:null
     },
     getters: {
         // 获取接收的信息

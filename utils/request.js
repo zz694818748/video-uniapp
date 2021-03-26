@@ -1,7 +1,7 @@
 var util = require('@/utils/util.js');
 var md5x = require('@/utils/md5x.js');
 // var host = 'http://cxxcd.hudee.vip/pcms/v1/';
-var host = 'http://t3cv46.natappfree.cc/api/v1/';
+var host = 'http://54tv3u.natappfree.cc/api/v1/';
 var interfacelist = {
     // 邮箱注册
     mailRegister: {url:'member/mailRegister',noCheckLogin:true},
@@ -9,12 +9,19 @@ var interfacelist = {
     pwdLogin:{url:'member/pwdLogin',noCheckLogin:true},
     // 退出登录
     exitLogin:{url:'member/exitLogin'},
+    // 创建房间
+    createRoom:{url:'room/create'},
+    // 关闭房间
+    colseRoom:{url:'room/colse'},
+    // 修改
+    setRoom:{url:'room/set'},
     // 获取手机号
     // pwdLogin:{url:'member/pwdLogin',noCheckLogin:true},
     // 密码登录
     // pwdLogin:{url:'member/pwdLogin',noCheckLogin:true},
     
 }
+// 接口请求成功后,先执行的方法
 var callback = {
     agentlogin: function(data) {
         uni.setStorageSync('Opid', data.Data.Opid)
@@ -38,10 +45,11 @@ function Req() {
             postData.opid = 1
         }else{
             var token = uni.getStorageSync('Token')
-            postData.opid = uni.getStorageSync('Opid')
-            if(token =='' || !token){
+            var user = uni.getStorageSync('User')
+            if(token =='' || !token || !user || !user.id){
                 return false
             }
+            postData.opid = user.id
         }
         // token = token.toUpperCase()
         let str = util.jsonSort(postData) + '&' + token;
@@ -60,7 +68,7 @@ function Req() {
                 mask: true
             })
         }
-        var postData = Object.assign({}, data)
+        var postData = JSON.parse(JSON.stringify(data))
         if (paging !== false) {
             postData.Pagenum = paging.pagenum
             postData.Pagecount = paging.pagecount

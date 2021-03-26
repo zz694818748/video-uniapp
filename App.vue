@@ -218,4 +218,9 @@
     .cu-nodata .cuIcon {
         font-size: 60rpx;
     }
+    .text-ell{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>

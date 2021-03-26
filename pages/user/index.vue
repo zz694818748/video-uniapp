@@ -3,36 +3,55 @@
         <view class="statusbar bg-black" :style="'height:'+StatusBar+'px'">
             <view class="fixed"></view>
         </view>
-        <view class="bg-white mymargin">
-            <view class="info">
-                <view class="cu-avatar radius lg" style="background-image:url('https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg');"></view>
-                <view class="content">
+        <view class="bg-black head">
+            <view class="info text-ell">
+                <img class="cu-avatar radius lg" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg" alt="">
+                <view class="content text-ell">
                     <view class="">
-                        <view class="text-cut">伊泽瑞尔</view>
+                        <view class="text-cut">{{user.userName}}</view>
                     </view>
                     <view class="text-gray text-sm flex">
-                        <view class="text-cut">等我回来一个打十个</view>
+                        <view class="text-cut">{{user.sign}}</view>
                     </view>
                 </view>
             </view>
-            <!-- <view class="data cu-list">
-                <view class="cu-item">
-                    <view>1</view>
-                    <text>关注</text>
-                </view>
-            </view> -->
+            <view class="cuIcon-settings">
+            </view>
         </view>
-        <view class="cu-list menu bg-white">
+        <view class="mybar bg-black">
+            <view class="action">
+                <view class="text-orange">会员特权</view>
+                <view class="text-xs">到期时间：2020-01-12</view>
+            </view>
+            <view class="action btn bg-white">续费</view>
+        </view>
+        
+        <view class="cu-list menu bg-white mymargin">
+            <view class="cu-item" @click="$util.myhref('/pages/user/security')">
+                <view class="content">
+                    <text class="cuIcon-my"></text>
+                    <text class="">账号安全</text>
+                </view>
+            </view>
             <view class="cu-item">
                 <view class="content">
-                    <text class="cuIcon-circlefill text-grey"></text>
-                    <text class="text-grey">图标 + 标题</text>
+                    <text class="cuIcon-present"></text>
+                    <text class="">我要推广</text>
+                </view>
+                <view class="action text-grey">
+                    奖励会员特权
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-selection"></text>
+                    <text class="">关于我们</text>
                 </view>
             </view>
             <view class="cu-item" @tap='exitlogin'>
                 <view class="content">
-                    <text class="cuIcon-exit text-grey"></text>
-                    <text class="text-grey">退出登录</text>
+                    <text class="cuIcon-exit"></text>
+                    <text class="">退出登录</text>
                 </view>
             </view>
         </view>
@@ -45,16 +64,18 @@
 
 <script>
     var that
+   
     export default {
         data() {
+            const stateiser = this.$store.state.userinfo
             return {
-                StatusBar: this.StatusBar
+                StatusBar: this.StatusBar,
+                user:stateiser ? stateiser : uni.getStorageSync('User')
             }
         },
         onLoad() {
-            this.StatusBar
             that = this
-            console.log(uni.getStorageSync('Token'))
+            console.log(that.$store.state.userinfo)
         },
         onReady() {},
         methods: {
@@ -68,31 +89,54 @@
 </script>
 
 <style>
-    .mymargin {
-        margin: 15rpx 0;
+    .cuIcon-settings{
+        font-size: 34rpx;
+        margin-left: 10rpx;
     }
-
-    .info .cu-avatar {
-        position: absolute;
-        left: 30rpx;
-        top: 20rpx;
-    }
-
-    .info .content {
-        width: 100%;
-        padding-left: 120rpx;
-        height: 100rpx;
+    .head{
+        padding: 0 30rpx;
+        height: 140rpx;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        align-items: center;
     }
-
     .info {
         display: flex;
         align-items: center;
-        padding: 0 30rpx;
         position: relative;
-        height: 140rpx;
+        flex: 1;
+    }
+    .info .cu-avatar{
+        margin-right: 10rpx;
+        
+    }
+    .info .content{
+        flex: 1;
+        height: 80rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .content .mybar .btn{
+        padding: 10rpx 30rpx;
+        border-radius: 30rpx;
+        font-size: 28rpx;
+    }
+    .mybar{
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 20rpx 20rpx;
+         border-top: #F37B1D solid 1px;
+    }
+    .mybar .action{
+        font-size: 32rpx;
+    }
+    .mybar .action .text-xs{
+        padding-top: 10rpx;
+        font-size: 24rpx;
+    }
+    .mymargin {
+        margin: 15rpx 0;
     }
 
     .statusbar .fixed {

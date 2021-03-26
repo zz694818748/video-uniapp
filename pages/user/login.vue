@@ -134,7 +134,7 @@
                    
                     that.$http.fastreq('pwdLogin',data,function(res){
                         uni.setStorageSync('Token',res.data.token);
-                        uni.setStorageSync('Opid',res.data.id);
+                        uni.setStorageSync('User',res.data);
                         
                         that.$util.myhref('../index/home','reLaunch')
                     })
